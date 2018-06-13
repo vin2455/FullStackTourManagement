@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44353/api/',
+  apiUrl: 'http://localhost:44353/api/',
   openIdConnectSettings: {
     authority: 'https://localhost:44398/',
     client_id: 'tourmanagementclient',
