@@ -9,7 +9,7 @@ using TourManagement.API.Services;
 namespace TourManagement.API.Controllers
 {
     [Route("api/bands")]
-    [Authorize]
+    //[Authorize]
     public class BandsController : Controller
     {
         private readonly ITourManagementRepository _tourManagementRepository;
