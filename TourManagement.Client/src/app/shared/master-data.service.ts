@@ -9,11 +9,9 @@ import { Band } from './band.model';
 import { Manager } from './manager.model';
 import { BaseService } from './base.service';
 
-
 // Master data that's used across the application
 @Injectable()
 export class MasterDataService extends BaseService {
-
   private bands: Band[];
   private managers: Manager[];
 
@@ -24,10 +22,10 @@ export class MasterDataService extends BaseService {
   getBands(): Observable<Band[]> {
     if (this.bands) {
       return Observable.of(this.bands);
-    }
-    else {
-      return this.http.get<Band[]>(`${this.apiUrl}/bands`)
-        .do((bandsFromResponse) => {
+    } else {
+      return this.http
+        .get<Band[]>(`${this.apiUrl}/bands`)
+        .do(bandsFromResponse => {
           this.bands = bandsFromResponse;
         });
     }
@@ -36,10 +34,10 @@ export class MasterDataService extends BaseService {
   getManagers(): Observable<Manager[]> {
     if (this.managers) {
       return Observable.of(this.managers);
-    }
-    else {
-      return this.http.get<Manager[]>(`${this.apiUrl}/managers`)
-        .do((managersFromResponse) => {
+    } else {
+      return this.http
+        .get<Manager[]>(`${this.apiUrl}/managers`)
+        .do(managersFromResponse => {
           this.managers = managersFromResponse;
         });
     }
