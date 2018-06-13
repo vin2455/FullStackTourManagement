@@ -15,13 +15,13 @@
                 {{band.name}}
               </option>
             </select>
-            <div *ngIf="tourForm.controls.band.dirty" class="has-error">
-              <div *ngIf="tourForm.controls.band.errors?.required">You must select a band.</div>            
-            </div>
+            <!-- <div *ngIf="tourForm.controls.band.dirty" class="has-error">
+              <div *ngIf="tourForm.controls.band.errors?.required">You must select a band.</div>
+            </div> -->
           </div>
         </div>
 
-        <div class="form-group" *ngIf='(isAdmin === true)'>
+        <!-- <div class="form-group" *ngIf='(isAdmin === true)'>
           <label class="col-md-2 control-label" for="managerId">Manager</label>
           <div class="col-md-8">
             <select class="form-control" formControlName="manager" id="managerId">
@@ -69,7 +69,7 @@
           </div>
         </div>
 
-        <div class="form-group" [ngClass]="{'has-error': 
+        <div class="form-group" [ngClass]="{'has-error':
         (tourForm.errors?.startDateBeforeEndDate || tourForm.controls.endDate.invalid)
         && (tourForm.controls.startDate.dirty || tourForm.controls.endDate.dirty)}">
           <label class="col-md-2 control-label" for="endDateId">Ends on</label>
@@ -111,7 +111,7 @@
               </a>
             </span>
           </div>
-        </div>
+        </div> -->
 
       </fieldset>
     </form>
