@@ -5,10 +5,10 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class OpenIdConnectService {
-
-  private userManager: UserManager = new UserManager(environment.openIdConnectSettings);
+  private userManager: UserManager = new UserManager(
+    environment.openIdConnectSettings
+  );
   private currentUser: User;
-
 
   userLoaded$ = new ReplaySubject<boolean>(1);
 
@@ -31,18 +31,17 @@ export class OpenIdConnectService {
       this.userLoaded$.next(true);
     });
 
-    this.userManager.events.addUserUnloaded((e) => {
+    this.userManager.events.addUserUnloaded(e => {
       if (!environment.production) {
         console.log('User unloaded');
       }
       this.currentUser = null;
       this.userLoaded$.next(false);
     });
-
   }
 
   triggerSignIn() {
-    this.userManager.signinRedirect().then(function () {
+    this.userManager.signinRedirect().then(function() {
       if (!environment.production) {
         console.log('Redirection to signin triggered.');
       }
@@ -50,7 +49,7 @@ export class OpenIdConnectService {
   }
 
   handleCallback() {
-    this.userManager.signinRedirectCallback().then(function (user) {
+    this.userManager.signinRedirectCallback().then(function(user) {
       if (!environment.production) {
         console.log('Callback after signin handled.', user);
       }
@@ -58,8 +57,8 @@ export class OpenIdConnectService {
   }
 
   handleSilentCallback() {
-    this.userManager.signinSilentCallback().then(function (user) {
-      this.currentUser = user
+    this.userManager.signinSilentCallback().then(function(user) {
+      this.currentUser = user;
       if (!environment.production) {
         console.log('Callback after silent signin handled.', user);
       }
@@ -67,10 +66,10 @@ export class OpenIdConnectService {
   }
 
   triggerSignOut() {
-    this.userManager.signoutRedirect().then(function (resp) {
+    this.userManager.signoutRedirect().then(function(resp) {
       if (!environment.production) {
         console.log('Redirection to sign out triggered.', resp);
       }
     });
-  };
+  }
 }
