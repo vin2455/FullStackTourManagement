@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Marvin.IDP
 {
+    // Startup class
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
